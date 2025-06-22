@@ -1,0 +1,23 @@
+{
+  "name": "iss-tracker",
+  "private": true,
+  "scripts": {
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "server": "yarn --cwd server dev",
+    "server:build": "yarn --cwd server build",
+    "server:start": "yarn --cwd server start",
+    "client": "yarn --cwd client dev",
+    "client:build": "yarn --cwd client build",
+    "client:start": "yarn --cwd client start",
+    "dev": "concurrently \"yarn server\" \"yarn client\"",
+    "find:deadcode": "yarn find:deadcode:client && yarn find:deadcode:server",
+    "find:deadcode:client": "ts-prune -p client/tsconfig.app.json",
+    "find:deadcode:server": "ts-prune -p server/tsconfig.json"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "prettier": "^3.5.3",
+    "ts-prune": "^0.10.3"
+  }
+}

@@ -1,0 +1,1 @@
+export { ISSMapDataAdapter } from './ISSMapDataAdapter'

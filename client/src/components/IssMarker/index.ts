@@ -1,0 +1,1 @@
+export { IssMarkerAdapter } from './IssMarkerAdapter'
