@@ -1,7 +1,9 @@
 {
   "name": "iss-tracker",
   "private": true,
+  "license": "MIT",
   "scripts": {
+    "bootstrap": "yarn install && yarn --cwd client install && yarn --cwd server install",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
     "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md}\"",
     "server": "yarn --cwd server dev",
