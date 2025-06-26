@@ -5,6 +5,7 @@ export const RefetchButton = styled.button`
   top: 24px;
   right: 24px;
   height: 40px;
+  width: 115px;
 
   display: flex;
   padding: 8px;

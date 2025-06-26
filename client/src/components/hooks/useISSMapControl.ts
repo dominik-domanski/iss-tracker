@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { type LatLngTuple, latLng } from 'leaflet'
 
-import type { ISSData } from '../../App/types'
+import type { ISSData } from '../App/types'
 
 export const useISSMapControl = (map: L.Map | null, latestPosition: ISSData | null) => {
   const [mapCenter, setMapCenter] = useState<LatLngTuple | null>(null)

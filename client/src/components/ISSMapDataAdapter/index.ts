@@ -1,1 +1,0 @@
-export { ISSMapDataAdapter } from './ISSMapDataAdapter'

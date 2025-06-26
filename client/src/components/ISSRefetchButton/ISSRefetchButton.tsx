@@ -1,12 +1,12 @@
 import { RefetchButton } from './ISSRefetchButton.styles'
-import { useISSLocation } from '../ISSLocationProvider/ISLocationProvider'
+import { useISSLocation } from '../ISSLocationProvider'
 
 export const ISSRefetchButton = () => {
-  const { refreshPosition } = useISSLocation()
+  const { refresh, loading } = useISSLocation()
 
   return (
-    <RefetchButton className='refetch' onClick={refreshPosition} disabled={false}>
-      'GET POSITION'
+    <RefetchButton className='refetch' onClick={refresh} disabled={false}>
+      {loading ? 'Loading...' : 'GET POSITION'}
     </RefetchButton>
   )
 }

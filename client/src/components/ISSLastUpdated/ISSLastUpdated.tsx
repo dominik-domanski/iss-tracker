@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { Wrapper } from './ISSLastUpdated.styles'
-import { useISSLocation } from '../ISSLocationProvider/ISLocationProvider'
+import { useISSLocation } from '../ISSLocationProvider'
 
 export const ISSLastUpdated = () => {
   const { position } = useISSLocation()
