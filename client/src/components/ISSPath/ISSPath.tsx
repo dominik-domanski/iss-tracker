@@ -1,6 +1,6 @@
-import { useISSStore } from '../../stores'
-
 import { Polyline } from 'react-leaflet'
+
+import { useISSLocation } from '../ISSLocationProvider'
 
 const PATH_OPTIONS = {
   color: 'hsla(40, 100%, 50%, 1)',
@@ -8,7 +8,7 @@ const PATH_OPTIONS = {
 }
 
 export const ISSPath = () => {
-  const polylinePositions = useISSStore((state) => state.positions)
+  const { positions } = useISSLocation()
 
-  return <Polyline positions={polylinePositions} pathOptions={PATH_OPTIONS} />
+  return <Polyline positions={positions} pathOptions={PATH_OPTIONS} />
 }

@@ -7,7 +7,7 @@ A full-stack web application for tracking the real-time location of the Internat
 ```
 iss-tracker/
 ├── client/       # Frontend (Vite + React + Leaflet)
-├── server/       # Backend (Node.js + Express + WS)
+├── server/       # Backend (Node.js + Express)
 ├── package.json  # Project-level scripts
 ├── .nvmrc        # Node.js version used
 └── README.md     # You're here!
@@ -49,7 +49,7 @@ yarn dev
 This runs both:
 
 - **Frontend** at: `http://localhost:5173`
-- **Backend/WebSocket** at: `http://localhost:3000` / `ws://localhost:3000`
+- **Backend** at: `http://localhost:3000`
 
 ---
 
@@ -79,43 +79,18 @@ http://localhost:3000/api
 
 ---
 
-### **GET** `/refetch`
+### **GET** `/iss-location`
 
 **Description**:  
-Fetches the current ISS position from [wheretheiss.at](https://wheretheiss.at) and **broadcasts it to all connected WebSocket clients**.
+Fetches the current ISS position from [wheretheiss.at](https://wheretheiss.at).
 
 #### Example Request
 
 ```bash
-curl http://localhost:3000/api/refetch
+curl http://localhost:3000/api/iss-location
 ```
 
-#### Example Response
-
-```json
-{
-  "success": true,
-  "message": "ISS position broadcasted."
-}
-```
-
-#### Error Response
-
-```json
-{
-  "error": "Broadcast failed"
-}
-```
-
----
-
-## WebSocket
-
-- **URL**: `ws://localhost:3000`
-- **Broadcast interval**: every 5 seconds
-- **Client automatically reconnects** on disconnect
-
-#### Message Format
+#### Response Format
 
 ```json
 {

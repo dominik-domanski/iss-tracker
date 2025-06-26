@@ -1,16 +1,14 @@
-import { useISSStore } from '../../stores'
-
+import { useISSLocation } from '../ISSLocationProvider'
 import { IssMarker } from './IssMarker'
 
 export const IssMarkerAdapter = () => {
-  const latestPosition = useISSStore((state) => state.latestPosition)
-  const isConnected = useISSStore((state) => state.isConnected)
+  const { position, error } = useISSLocation()
 
-  if (!latestPosition) {
+  if (!position) {
     return null
   }
 
-  const { heading, latitude, longitude } = latestPosition
+  const { heading, latitude, longitude } = position
 
-  return <IssMarker isConnected={isConnected} heading={heading} position={[latitude, longitude]} />
+  return <IssMarker isConnected={!error} heading={heading || 0} position={[latitude, longitude]} />
 }

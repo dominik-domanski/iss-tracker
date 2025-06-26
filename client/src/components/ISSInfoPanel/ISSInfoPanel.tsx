@@ -1,14 +1,14 @@
-import { useISSStore } from '../../stores'
+import { useISSLocation } from '../ISSLocationProvider'
 import { Panel, InfoRow } from './ISSInfoPanel.styles'
 
 export const ISSInfoPanel = () => {
-  const latestPosition = useISSStore((state) => state.latestPosition)
+  const { position } = useISSLocation()
 
-  if (!latestPosition) {
+  if (!position) {
     return <Panel>Waiting for ISS data...</Panel>
   }
 
-  const { latitude, longitude, velocity } = latestPosition
+  const { latitude, longitude, velocity } = position
   const orbitalPeriodMinutes = 92.68 // average period for ISS, static
 
   return (
