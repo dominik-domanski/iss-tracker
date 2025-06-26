@@ -1,16 +1,16 @@
 import { useMemo } from 'react'
 import { Wrapper } from './ISSLastUpdated.styles'
-import { useISSStore } from '../../stores'
+import { useISSLocation } from '../ISSLocationProvider/ISLocationProvider'
 
 export const ISSLastUpdated = () => {
-  const latestPosition = useISSStore((state) => state.latestPosition)
+  const { position } = useISSLocation()
 
   const formattedTime = useMemo(() => {
-    if (!latestPosition?.timestamp) return 'N/A'
+    if (!position?.timestamp) return 'N/A'
 
-    const date = new Date(latestPosition.timestamp * 1000)
+    const date = new Date(position.timestamp * 1000)
     return date.toLocaleTimeString()
-  }, [latestPosition])
+  }, [position])
 
   return (
     <Wrapper>
