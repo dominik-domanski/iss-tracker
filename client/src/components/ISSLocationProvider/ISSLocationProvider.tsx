@@ -25,9 +25,10 @@ export const IssLocationProvider: React.FC<{ children: React.ReactNode }> = ({ c
   const { position: rawPosition, error, fetchLocation, loading } = useFetchLocation()
 
   useNightShadowLayer(map)
-  useISSMapControl(map, rawPosition)
 
   const { position, positions } = useIssTrackHistory(rawPosition)
+
+  useISSMapControl(map, rawPosition, positions.length > 1)
 
   // Start periodic fetching
   useEffect(() => {
