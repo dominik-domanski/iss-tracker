@@ -90,25 +90,6 @@ Fetches the current ISS position from [wheretheiss.at](https://wheretheiss.at).
 curl http://localhost:3000/api/iss-location
 ```
 
-#### Example Response
-
-```json
-{
-  "success": true,
-  "message": "ISS position broadcasted."
-}
-```
-
-#### Error Response
-
-```json
-{
-  "error": "Broadcast failed"
-}
-```
-
----
-
 #### Response Format
 
 ```json
