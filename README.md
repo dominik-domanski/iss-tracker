@@ -13,59 +13,74 @@ iss-tracker/
 └── README.md     # You're here!
 ```
 
+## Running the Project
+
+This project supports **two implementations**:
+
+- `main` – using **HTTP (REST)** communication
+- `websocket` – using **WebSocket** communication
+
+You can easily switch between them using provided scripts.
+
 ---
 
-## 🚀 Getting Started
+## First-Time Setup
 
-### ✅ Prerequisites
-
-- Node.js v20.10.0 (automatically used via `.nvmrc` if you're using [nvm](https://github.com/nvm-sh/nvm))
-- Yarn v1.22 or later
-
----
-
-### 🔧 Install dependencies
-
-From the project root:
+Clone the repo:
 
 ```bash
-yarn bootstrap
+git clone https://github.com/dominik-domanski/iss-tracker.git
+cd iss-tracker
+yarn install
 ```
+
+---
+
+## Run with REST (`main` branch)
 
 This will:
 
-- Install dev dependencies in the root
-- Install frontend dependencies: `client/`
-- Install backend dependencies: `server/`
-
----
-
-### Start development servers
+- Discard any local changes
+- Switch to the `main` branch
+- Clean dependencies
+- Install everything
+- Start the dev servers
 
 ```bash
-yarn dev
+yarn run:main
 ```
-
-This runs both:
-
-- **Frontend** at: `http://localhost:5173`
-- **Backend** at: `http://localhost:3000`
 
 ---
 
-## Scripts
+## Run with WebSocket (`websocket` branch)
 
-Run from the root directory:
+Same flow, but using the WebSocket implementation:
 
-| Script               | Description                     |
-| -------------------- | ------------------------------- |
-| `yarn dev`           | Start both frontend and backend |
-| `yarn server`        | Start backend only (dev mode)   |
-| `yarn client`        | Start frontend only             |
-| `yarn client:build`  | Build frontend assets           |
-| `yarn server:build`  | Build backend for production    |
-| `yarn format`        | Format all code using Prettier  |
-| `yarn find:deadcode` | Run `ts-prune` on client/server |
+```bash
+yarn run:ws
+```
+
+---
+
+## Scripts Overview
+
+Under the hood, these scripts run:
+
+- `scripts/run-main.sh` → switches to `main`, cleans, installs, runs
+- `scripts/run-ws.sh` → switches to `websocket`, cleans, installs, runs
+
+You can also run them manually:
+
+```bash
+./scripts/run-main.sh
+./scripts/run-ws.sh
+```
+
+Make them executable if needed:
+
+```bash
+chmod +x scripts/*.sh
+```
 
 ---
 
@@ -104,6 +119,6 @@ curl http://localhost:3000/api/iss-location
 
 ---
 
-## 📦 License
+## License
 
 MIT
