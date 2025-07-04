@@ -15,7 +15,9 @@
     "dev": "concurrently \"yarn server\" \"yarn client\"",
     "find:deadcode": "yarn find:deadcode:client && yarn find:deadcode:server",
     "find:deadcode:client": "ts-prune -p client/tsconfig.app.json",
-    "find:deadcode:server": "ts-prune -p server/tsconfig.json"
+    "find:deadcode:server": "ts-prune -p server/tsconfig.json",
+    "run:main": "bash scripts/run-main.sh",
+    "run:ws": "bash scripts/run-ws.sh"
   },
   "devDependencies": {
     "concurrently": "^9.1.2",
